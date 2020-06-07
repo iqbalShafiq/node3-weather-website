@@ -13,11 +13,12 @@ const forecast = (lat, long, callback) => {
                 temperature: body.current.temperature,
                 feelsLike: body.current.feelslike,
                 cast: body.current.weather_descriptions[0],
+                humidity: body.current.humidity,
             };
-            const { temperature, feelsLike, cast } = data;
+            const { temperature, feelsLike, cast, humidity } = data;
             callback(
                 undefined,
-                `${cast}. It is currently ${temperature} degress out. It feels like ${feelsLike} degress out`
+                `${cast}. It is currently ${temperature} degress out. It feels like ${feelsLike} degress out. The humidity percentage is ${humidity}%.`
             );
         }
     });
